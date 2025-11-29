@@ -1,0 +1,47 @@
+version: "3.9"
+
+# 1. 仅构建一次
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ssh-ubuntu   # 显式指定镜像名，供下面复用
+    command: /bin/true        # 构建完即退出，不长期运行
+
+  # 2. 四个运行实例，共用同一镜像
+  ubuntu-21:
+    image: ssh-ubuntu   # 直接引用已构建好的镜像
+    container_name: ubuntu-21
+    restart: always
+    ports:
+      - "10021:22"
+    depends_on:
+      - base                 # 确保镜像先构建完成
+
+  ubuntu-22:
+    image: ssh-ubuntu
+    container_name: ubuntu-22
+    restart: always
+    ports:
+      - "10022:22"
+    depends_on:
+      - base
+
+  ubuntu-23:
+    image: ssh-ubuntu
+    container_name: ubuntu-23
+    restart: always
+    ports:
+      - "10023:22"
+    depends_on:
+      - base
+
+  ubuntu-24:
+    image: ssh-ubuntu
+    container_name: ubuntu-24
+    restart: always
+    ports:
+      - "10024:22"
+    depends_on:
+      - base

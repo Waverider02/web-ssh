@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "127.0.0.1:6379:6379"   # 仅本机访问，生产可改成内网 IP
+    volumes:
+      - ../../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ../../redis/data:/data
+      - ../../redis/logs:/logs
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]

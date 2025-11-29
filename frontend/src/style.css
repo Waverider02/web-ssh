@@ -1,0 +1,40 @@
+/* 此处写全局样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+input {
+    outline: none;
+}
+
+.ant-popconfirm {
+    min-width: 240px;
+}
+
+.ant-dropdown-menu {
+    max-height: 240px;
+    overflow-y: auto;
+}

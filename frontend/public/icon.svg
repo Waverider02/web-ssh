@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="terminalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0052CC;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B894;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影效果 -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- 发光效果 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景圆角矩形 -->
+  <rect x="20" y="20" width="216" height="216" rx="32" 
+        fill="url(#terminalGradient)" 
+        filter="url(#softShadow)"/>
+  
+  <!-- 终端窗口框架 -->
+  <rect x="40" y="40" width="176" height="176" rx="16" 
+        fill="#1a1a1a" 
+        stroke="#ffffff" 
+        stroke-width="2" 
+        opacity="0.9"/>
+  
+  <!-- 终端标题栏 -->
+  <rect x="48" y="48" width="160" height="28" rx="8" 
+        fill="#2c3e50" 
+        opacity="0.8"/>
+  
+  <!-- 窗口控制按钮 -->
+  <circle cx="64" cy="62" r="6" fill="#ff5f57"/>
+  <circle cx="80" cy="62" r="6" fill="#ffbd2e"/>
+  <circle cx="96" cy="62" r="6" fill="#28ca42"/>
+  
+  <!-- 终端内容区域 -->
+  <rect x="48" y="84" width="160" height="120" rx="8" 
+        fill="#000000" 
+        stroke="#333333" 
+        stroke-width="1"/>
+  
+  <!-- 命令行提示符和文字 -->
+  <text x="60" y="110" font-family="Consolas, Monaco, monospace" 
+        font-size="12" fill="#00ff00">
+    $ ssh user@web-server
+  </text>
+  
+  <text x="60" y="130" font-family="Consolas, Monaco, monospace" 
+        font-size="12" fill="#ffffff">
+    Connecting...
+  </text>
+  
+  <!-- 光标 -->
+  <rect x="140" y="120" width="8" height="2" fill="#00ff00">
+    <animate attributeName="opacity" 
+             values="1;0;1" 
+             dur="1s" 
+             repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- 连接状态指示灯 -->
+  <circle cx="190" cy="100" r="8" fill="#00D4AA" filter="url(#glow)">
+    <animate attributeName="opacity" 
+             values="0.7;1;0.7" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- 安全锁图标 -->
+  <g transform="translate(200, 180) scale(0.8)">
+    <rect x="0" y="8" width="16" height="12" rx="2" 
+          fill="url(#lockGradient)" 
+          stroke="#ffffff" 
+          stroke-width="1"/>
+    <path d="M8 2 C10 2 12 4 12 6 L12 8" 
+          stroke="#ffffff" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-linecap="round"/>
+    <circle cx="8" cy="14" r="2" fill="#ffffff"/>
+  </g>
+  
+  <!-- 装饰性网络连接线 -->
+  <g opacity="0.3">
+    <path d="M120 60 Q160 40 200 60" 
+          stroke="#ffffff" 
+          stroke-width="2" 
+          fill="none" 
+          stroke-dasharray="4,4">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;-8" 
+               dur="1s" 
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
