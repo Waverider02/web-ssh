@@ -40,18 +40,26 @@ cd .../web-ssh
 
 5. 初始化后端
 
+
+```bash
+cd backend
+```
+
 ```bash
 pip install -r requirement.txt
 ```
 
 ```bash
 python manage.py makemigrations
+```
+
+```
 python manage.py migrate
 ```
 
 6. 启动后端服务器
 
-```
+```bash
 python manage.py runserver
 ```
 
