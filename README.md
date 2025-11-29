@@ -201,11 +201,11 @@ Quit the server with CTRL-BREAK.
 
 3.2 浏览器访问前端入口http://localhost:5173/
 
-![image-20251130010015256](.\assets\image-20251130010015256.png)
+![image-20251130010015256](./assets/image-20251130010015256.png)
 
 3.3 输入在2.3中创建的超级管理员账户与密码，点击登陆，进入平台
 
-![image-20251130010127860](.\assets\image-20251130010127860.png)
+![image-20251130010127860](./assets/image-20251130010127860.png)
 
 3.4 内容概述
 
